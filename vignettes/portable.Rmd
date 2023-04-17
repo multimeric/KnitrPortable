@@ -1,0 +1,35 @@
+---
+title: "portable"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{portable}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, setup, echo=FALSE, include=FALSE}
+root_dir <- knitr::opts_knit$get("root.dir")
+if (!is.null(root_dir)){
+    knitr::opts_knit$set(
+        output.dir = root_dir
+    )
+}
+proj_root <- rprojroot::find_package_root_file() |> normalizePath() 
+```
+
+```{r, eval=FALSE, echo=FALSE, include=FALSE}
+# Run this cell to knit to a markdown readme
+rmarkdown::render(
+    "portable.Rmd",
+    output_file = "README.md",
+    output_format = "github_document",
+    output_dir = proj_root,
+    knit_root_dir = proj_root
+)
+```
+
+```{r}
+proj_root |>
+    file.path("vignettes", "Rlogo.svg") |>
+    knitr::include_graphics()
+```
